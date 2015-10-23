@@ -82,8 +82,38 @@ SELECT * FROM trading where (import_total in (select min(import_total) from trad
 55|1961|22208|26403|4195|7671|14537|6295|20108
 
 -- excute query:
+SELECT a.year, a.naics_code, b.information
+from labors_pattern a, industry b
+where paid_employees= (
+	select max(paid_employees)
+	from labors_pattern
+	where (
+		year=a.year
+		and
+		naics_code>0
+	)
+)
+and b.nacis_code = a.naics_code
+order by a.year
 
 -- query result:
+"year"|"naics_code"|"information"
+1998|31|"Manufacturing "
+1999|31|"Manufacturing "
+2000|31|"Manufacturing "
+2001|31|"Manufacturing "
+2002|62|"Health Care and Social Assistance "
+2003|62|"Health Care and Social Assistance "
+2004|62|"Health Care and Social Assistance "
+2005|62|"Health Care and Social Assistance "
+2006|62|"Health Care and Social Assistance "
+2007|62|"Health Care and Social Assistance "
+2008|62|"Health Care and Social Assistance "
+2009|62|"Health Care and Social Assistance "
+2010|62|"Health Care and Social Assistance "
+2011|62|"Health Care and Social Assistance "
+2012|62|"Health Care and Social Assistance "
+2013|62|"Health Care and Social Assistance "
 
 -- excute query:
 SELECT * FROM immigration where (naturalized_total in (select max(naturalized_total) from immigration));
