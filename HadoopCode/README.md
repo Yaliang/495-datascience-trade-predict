@@ -13,11 +13,11 @@ Compiled classes
 
 ## flb.jar
 
-Jar file includes all classes
+Java Archive file (Jar file) includes all classes
 
 ## make.sh
 
-Shell Scripts I used for compiling and lunch standalone hadoop.
+Shell scripts I used for compiling the java code, building archive file and lunching standalone hadoop.
 
 ## input
 
