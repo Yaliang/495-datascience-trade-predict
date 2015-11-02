@@ -1,27 +1,27 @@
 # Hadoop
 
-####This folder include a simple hadoop application finding the business with largest employee amount per year.
+This folder include a simple hadoop application finding the business with largest employee amount per year.
 
 # Files
 ## FindLargestBusiness.java
 
-#### The hadoop application implemented in Java.
+The hadoop application implemented in Java.
 
 ## FindLargestBusiness*.class
 
-#### Compiled classes
+Compiled classes
 
 ## flb.jar
 
-#### Jar file includes all classes
+Jar file includes all classes
 
 ## make.sh
 
-#### Shell Scripts I used for compiling and lunch standalone hadoop.
+Shell Scripts I used for compiling and lunch standalone hadoop.
 
 ## input
 
-#### The folder contains a file of data query from PostgresBD:
+The folder contains a file of data query from PostgresBD:
 
 ```sql
 SELECT 
@@ -36,11 +36,11 @@ WHERE
 
 ## output
 
-#### The folder includes the result of hadoop.
+The folder includes the result of hadoop.
 
 ## result_sql.dat
 
-#### The sql result. The query is:
+The sql result. The query is:
 
 ```sql
 SELECT DISTINCT ON (year) year, naics_code, paid_employees, information
