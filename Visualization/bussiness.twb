@@ -1,0 +1,1760 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 9100.15.1013.2200                                -->
+<workbook locale='en_US' source-platform='win' version='9.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='business' inline='true' name='postgres.42312.685770497686' version='9.1'>
+      <connection class='postgres' dbname='db08ufnqsqd52b' odbc-native-protocol='yes' port='5432' server='ec2-54-227-253-238.compute-1.amazonaws.com' sslmode='require' username='todqwhtumtlwxu'>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[time].[year]' />
+                <expression op='[stat_bussi_patrn_annual_vari].[year]' />
+              </expression>
+              <expression op='='>
+                <expression op='[industry].[naics_code]' />
+                <expression op='[stat_bussi_patrn_annual_vari].[naics_code]' />
+              </expression>
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[labors_pattern].[naics_code]' />
+                <expression op='[industry].[naics_code]' />
+              </expression>
+            </clause>
+            <relation join='inner' type='join'>
+              <clause type='join'>
+                <expression op='='>
+                  <expression op='[time].[year]' />
+                  <expression op='[labors_pattern].[year]' />
+                </expression>
+              </clause>
+              <relation name='time' table='[public].[time]' type='table' />
+              <relation name='labors_pattern' table='[public].[labors_pattern]' type='table' />
+            </relation>
+            <relation name='industry' table='[public].[industry]' type='table' />
+          </relation>
+          <relation name='stat_bussi_patrn_annual_vari' table='[public].[stat_bussi_patrn_annual_vari]' type='table' />
+        </relation>
+        <cols>
+          <map key='[annual]' value='[labors_pattern].[annual]' />
+          <map key='[information]' value='[industry].[information]' />
+          <map key='[naics_code (industry)]' value='[industry].[naics_code]' />
+          <map key='[naics_code (stat_bussi_patrn_annual_vari)]' value='[stat_bussi_patrn_annual_vari].[naics_code]' />
+          <map key='[naics_code]' value='[labors_pattern].[naics_code]' />
+          <map key='[paid_employees]' value='[labors_pattern].[paid_employees]' />
+          <map key='[paid_employees_vari]' value='[stat_bussi_patrn_annual_vari].[paid_employees_vari]' />
+          <map key='[paid_employees_vari_abs]' value='[stat_bussi_patrn_annual_vari].[paid_employees_vari_abs]' />
+          <map key='[season]' value='[labors_pattern].[season]' />
+          <map key='[size_1000]' value='[labors_pattern].[size_1000]' />
+          <map key='[size_100_249]' value='[labors_pattern].[size_100_249]' />
+          <map key='[size_10_19]' value='[labors_pattern].[size_10_19]' />
+          <map key='[size_1_4]' value='[labors_pattern].[size_1_4]' />
+          <map key='[size_20_49]' value='[labors_pattern].[size_20_49]' />
+          <map key='[size_250_499]' value='[labors_pattern].[size_250_499]' />
+          <map key='[size_500_900]' value='[labors_pattern].[size_500_900]' />
+          <map key='[size_50_99]' value='[labors_pattern].[size_50_99]' />
+          <map key='[size_5_9]' value='[labors_pattern].[size_5_9]' />
+          <map key='[total_establishment]' value='[labors_pattern].[total_establishment]' />
+          <map key='[total_establishment_vari]' value='[stat_bussi_patrn_annual_vari].[total_establishment_vari]' />
+          <map key='[total_establishment_vari_abs]' value='[stat_bussi_patrn_annual_vari].[total_establishment_vari_abs]' />
+          <map key='[year (labors_pattern)]' value='[labors_pattern].[year]' />
+          <map key='[year (stat_bussi_patrn_annual_vari)]' value='[stat_bussi_patrn_annual_vari].[year]' />
+          <map key='[year]' value='[time].[year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[time]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year (labors_pattern)]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>naics_code</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[naics_code]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>naics_code</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>paid_employees</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[paid_employees]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>paid_employees</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>season</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[season]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>season</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>annual</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[annual]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>annual</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_establishment</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[total_establishment]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>total_establishment</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size_1_4</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[size_1_4]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>size_1_4</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size_5_9</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[size_5_9]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>size_5_9</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size_10_19</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[size_10_19]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>size_10_19</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size_20_49</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[size_20_49]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>size_20_49</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size_50_99</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[size_50_99]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>size_50_99</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size_100_249</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[size_100_249]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>size_100_249</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size_250_499</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[size_250_499]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>size_250_499</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size_500_900</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[size_500_900]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>size_500_900</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>size_1000</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[size_1000]</local-name>
+            <parent-name>[labors_pattern]</parent-name>
+            <remote-alias>size_1000</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>naics_code</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[naics_code (industry)]</local-name>
+            <parent-name>[industry]</parent-name>
+            <remote-alias>naics_code</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>information</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[information]</local-name>
+            <parent-name>[industry]</parent-name>
+            <remote-alias>information</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>8190</width>
+            <contains-null>false</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WLONGVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year (stat_bussi_patrn_annual_vari)]</local-name>
+            <parent-name>[stat_bussi_patrn_annual_vari]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>naics_code</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[naics_code (stat_bussi_patrn_annual_vari)]</local-name>
+            <parent-name>[stat_bussi_patrn_annual_vari]</parent-name>
+            <remote-alias>naics_code</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>paid_employees_vari</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[paid_employees_vari]</local-name>
+            <parent-name>[stat_bussi_patrn_annual_vari]</parent-name>
+            <remote-alias>paid_employees_vari</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>paid_employees_vari_abs</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[paid_employees_vari_abs]</local-name>
+            <parent-name>[stat_bussi_patrn_annual_vari]</parent-name>
+            <remote-alias>paid_employees_vari_abs</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_establishment_vari</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[total_establishment_vari]</local-name>
+            <parent-name>[stat_bussi_patrn_annual_vari]</parent-name>
+            <remote-alias>total_establishment_vari</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_establishment_vari_abs</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[total_establishment_vari_abs]</local-name>
+            <parent-name>[stat_bussi_patrn_annual_vari]</parent-name>
+            <remote-alias>total_establishment_vari_abs</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Annual' datatype='real' name='[annual]' role='measure' type='quantitative' />
+      <column caption='Information' datatype='string' name='[information]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Naics Code (Industry)' datatype='integer' name='[naics_code (industry)]' role='dimension' type='ordinal' />
+      <column caption='Naics Code (Stat Bussi Patrn Annual Vari)' datatype='integer' name='[naics_code (stat_bussi_patrn_annual_vari)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Naics Code' datatype='integer' name='[naics_code]' role='dimension' type='ordinal' />
+      <column caption='Paid Employees' datatype='real' name='[paid_employees]' role='measure' type='quantitative' />
+      <column caption='Paid Employees Vari' datatype='real' name='[paid_employees_vari]' role='measure' type='quantitative' />
+      <column caption='Paid Employees Vari Abs' datatype='real' name='[paid_employees_vari_abs]' role='measure' type='quantitative' />
+      <column caption='Season' datatype='real' name='[season]' role='measure' type='quantitative' />
+      <column caption='Size 1000' datatype='real' name='[size_1000]' role='measure' type='quantitative' />
+      <column caption='Size 100 249' datatype='real' name='[size_100_249]' role='measure' type='quantitative' />
+      <column caption='Size 10 19' datatype='real' name='[size_10_19]' role='measure' type='quantitative' />
+      <column caption='Size 1 4' datatype='real' name='[size_1_4]' role='measure' type='quantitative' />
+      <column caption='Size 20 49' datatype='real' name='[size_20_49]' role='measure' type='quantitative' />
+      <column caption='Size 250 499' datatype='real' name='[size_250_499]' role='measure' type='quantitative' />
+      <column caption='Size 500 900' datatype='real' name='[size_500_900]' role='measure' type='quantitative' />
+      <column caption='Size 50 99' datatype='real' name='[size_50_99]' role='measure' type='quantitative' />
+      <column caption='Size 5 9' datatype='real' name='[size_5_9]' role='measure' type='quantitative' />
+      <column caption='Total Establishment' datatype='real' name='[total_establishment]' role='measure' type='quantitative' />
+      <column caption='Total Establishment Vari' datatype='real' name='[total_establishment_vari]' role='measure' type='quantitative' />
+      <column caption='Total Establishment Vari Abs' datatype='real' name='[total_establishment_vari_abs]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Year (Labors Pattern)' datatype='integer' name='[year (labors_pattern)]' role='dimension' type='ordinal' />
+      <column caption='Year (Stat Bussi Patrn Annual Vari)' datatype='integer' name='[year (stat_bussi_patrn_annual_vari)]' role='dimension' type='quantitative' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <column-instance column='[paid_employees]' derivation='Sum' name='[sum:paid_employees:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[total_establishment]' derivation='Sum' name='[sum:total_establishment:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;[postgres.42312.685770497686].[sum:balance_total:qk]&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;[postgres.42312.685770497686].[sum:total_establishment:qk]&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;[postgres.42312.685770497686]&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;[postgres.42312.685770497686].[sum:paid_employees:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;美国&quot;' />
+      </semantic-values>
+      <filter class='categorical' column='[naics_code]' filter-group='2'>
+        <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+          <groupfilter function='level-members' level='[naics_code]' />
+          <groupfilter function='member' level='[naics_code]' member='0' />
+        </groupfilter>
+      </filter>
+    </datasource>
+    <datasource caption='international trade' inline='true' name='postgres.42312.718396643519' version='9.1'>
+      <connection class='postgres' dbname='db08ufnqsqd52b' odbc-native-protocol='yes' port='5432' server='ec2-54-227-253-238.compute-1.amazonaws.com' sslmode='require' username='todqwhtumtlwxu'>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[time].[year]' />
+              <expression op='[trading].[year]' />
+            </expression>
+          </clause>
+          <relation name='time' table='[public].[time]' type='table' />
+          <relation name='trading' table='[public].[trading]' type='table' />
+        </relation>
+        <cols>
+          <map key='[balance_total]' value='[trading].[balance_total]' />
+          <map key='[export_goods]' value='[trading].[export_goods]' />
+          <map key='[export_service]' value='[trading].[export_service]' />
+          <map key='[export_total]' value='[trading].[export_total]' />
+          <map key='[import_goods]' value='[trading].[import_goods]' />
+          <map key='[import_service]' value='[trading].[import_service]' />
+          <map key='[import_total]' value='[trading].[import_total]' />
+          <map key='[sampleid]' value='[trading].[sampleid]' />
+          <map key='[year (trading)]' value='[trading].[year]' />
+          <map key='[year]' value='[time].[year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[time]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sampleid</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[sampleid]</local-name>
+            <parent-name>[trading]</parent-name>
+            <remote-alias>sampleid</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_BIGINT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SBIGINT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year (trading)]</local-name>
+            <parent-name>[trading]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>import_total</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[import_total]</local-name>
+            <parent-name>[trading]</parent-name>
+            <remote-alias>import_total</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>export_total</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[export_total]</local-name>
+            <parent-name>[trading]</parent-name>
+            <remote-alias>export_total</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>balance_total</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[balance_total]</local-name>
+            <parent-name>[trading]</parent-name>
+            <remote-alias>balance_total</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>import_service</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[import_service]</local-name>
+            <parent-name>[trading]</parent-name>
+            <remote-alias>import_service</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>import_goods</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[import_goods]</local-name>
+            <parent-name>[trading]</parent-name>
+            <remote-alias>import_goods</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>export_service</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[export_service]</local-name>
+            <parent-name>[trading]</parent-name>
+            <remote-alias>export_service</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>export_goods</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[export_goods]</local-name>
+            <parent-name>[trading]</parent-name>
+            <remote-alias>export_goods</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Balance Total' datatype='integer' name='[balance_total]' role='measure' type='quantitative' />
+      <column caption='Export Goods' datatype='integer' name='[export_goods]' role='measure' type='quantitative' />
+      <column caption='Export Service' datatype='integer' name='[export_service]' role='measure' type='quantitative' />
+      <column caption='Export Total' datatype='integer' name='[export_total]' role='measure' type='quantitative' />
+      <column caption='Import Goods' datatype='integer' name='[import_goods]' role='measure' type='quantitative' />
+      <column caption='Import Service' datatype='integer' name='[import_service]' role='measure' type='quantitative' />
+      <column caption='Import Total' datatype='integer' name='[import_total]' role='measure' type='quantitative' />
+      <column caption='Sampleid' datatype='integer' name='[sampleid]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Year (Trading)' datatype='integer' name='[year (trading)]' role='dimension' type='ordinal' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;美国&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='exchange' inline='true' name='postgres.42313.613739930559' version='9.1'>
+      <connection class='postgres' dbname='db08ufnqsqd52b' odbc-native-protocol='yes' port='5432' server='ec2-54-227-253-238.compute-1.amazonaws.com' sslmode='require' username='todqwhtumtlwxu'>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[time].[year]' />
+              <expression op='[stat_exchange_annual_vari].[year]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[time].[year]' />
+                <expression op='[exchange].[year]' />
+              </expression>
+            </clause>
+            <relation name='time' table='[public].[time]' type='table' />
+            <relation name='exchange' table='[public].[exchange]' type='table' />
+          </relation>
+          <relation name='stat_exchange_annual_vari' table='[public].[stat_exchange_annual_vari]' type='table' />
+        </relation>
+        <cols>
+          <map key='[aud]' value='[exchange].[aud]' />
+          <map key='[aud_vari]' value='[stat_exchange_annual_vari].[aud_vari]' />
+          <map key='[cad]' value='[exchange].[cad]' />
+          <map key='[cad_vari]' value='[stat_exchange_annual_vari].[cad_vari]' />
+          <map key='[eur]' value='[exchange].[eur]' />
+          <map key='[eur_vari]' value='[stat_exchange_annual_vari].[eur_vari]' />
+          <map key='[gbp]' value='[exchange].[gbp]' />
+          <map key='[gbp_vari]' value='[stat_exchange_annual_vari].[gbp_vari]' />
+          <map key='[jpy]' value='[exchange].[jpy]' />
+          <map key='[jpy_vari]' value='[stat_exchange_annual_vari].[jpy_vari]' />
+          <map key='[rmb]' value='[exchange].[rmb]' />
+          <map key='[rmb_vari]' value='[stat_exchange_annual_vari].[rmb_vari]' />
+          <map key='[usd]' value='[exchange].[usd]' />
+          <map key='[year (exchange)]' value='[exchange].[year]' />
+          <map key='[year (stat_exchange_annual_vari)]' value='[stat_exchange_annual_vari].[year]' />
+          <map key='[year]' value='[time].[year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[time]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year (exchange)]</local-name>
+            <parent-name>[exchange]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>usd</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[usd]</local-name>
+            <parent-name>[exchange]</parent-name>
+            <remote-alias>usd</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>jpy</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[jpy]</local-name>
+            <parent-name>[exchange]</parent-name>
+            <remote-alias>jpy</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>eur</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[eur]</local-name>
+            <parent-name>[exchange]</parent-name>
+            <remote-alias>eur</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gbp</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[gbp]</local-name>
+            <parent-name>[exchange]</parent-name>
+            <remote-alias>gbp</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cad</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[cad]</local-name>
+            <parent-name>[exchange]</parent-name>
+            <remote-alias>cad</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>aud</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[aud]</local-name>
+            <parent-name>[exchange]</parent-name>
+            <remote-alias>aud</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rmb</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rmb]</local-name>
+            <parent-name>[exchange]</parent-name>
+            <remote-alias>rmb</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[year (stat_exchange_annual_vari)]</local-name>
+            <parent-name>[stat_exchange_annual_vari]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>jpy_vari</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[jpy_vari]</local-name>
+            <parent-name>[stat_exchange_annual_vari]</parent-name>
+            <remote-alias>jpy_vari</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>eur_vari</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[eur_vari]</local-name>
+            <parent-name>[stat_exchange_annual_vari]</parent-name>
+            <remote-alias>eur_vari</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gbp_vari</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[gbp_vari]</local-name>
+            <parent-name>[stat_exchange_annual_vari]</parent-name>
+            <remote-alias>gbp_vari</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cad_vari</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[cad_vari]</local-name>
+            <parent-name>[stat_exchange_annual_vari]</parent-name>
+            <remote-alias>cad_vari</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>aud_vari</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[aud_vari]</local-name>
+            <parent-name>[stat_exchange_annual_vari]</parent-name>
+            <remote-alias>aud_vari</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rmb_vari</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rmb_vari]</local-name>
+            <parent-name>[stat_exchange_annual_vari]</parent-name>
+            <remote-alias>rmb_vari</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>17</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_FLOAT&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Aud' datatype='real' name='[aud]' role='measure' type='quantitative' />
+      <column caption='Aud Vari' datatype='real' name='[aud_vari]' role='measure' type='quantitative' />
+      <column caption='Cad' datatype='real' name='[cad]' role='measure' type='quantitative' />
+      <column caption='Cad Vari' datatype='real' name='[cad_vari]' role='measure' type='quantitative' />
+      <column caption='Eur' datatype='real' name='[eur]' role='measure' type='quantitative' />
+      <column caption='Eur Vari' datatype='real' name='[eur_vari]' role='measure' type='quantitative' />
+      <column caption='Gbp' datatype='real' name='[gbp]' role='measure' type='quantitative' />
+      <column caption='Gbp Vari' datatype='real' name='[gbp_vari]' role='measure' type='quantitative' />
+      <column caption='Jpy' datatype='real' name='[jpy]' role='measure' type='quantitative' />
+      <column caption='Jpy Vari' datatype='real' name='[jpy_vari]' role='measure' type='quantitative' />
+      <column caption='Rmb' datatype='real' name='[rmb]' role='measure' type='quantitative' />
+      <column caption='Rmb Vari' datatype='real' name='[rmb_vari]' role='measure' type='quantitative' />
+      <column caption='Usd' datatype='real' name='[usd]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Year (Exchange)' datatype='integer' name='[year (exchange)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Year (Stat Exchange Annual Vari)' datatype='integer' name='[year (stat_exchange_annual_vari)]' role='dimension' type='quantitative' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;美国&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='business'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='business' name='postgres.42312.685770497686' />
+            <datasource caption='international trade' name='postgres.42312.718396643519' />
+          </datasources>
+          <datasource-dependencies datasource='postgres.42312.685770497686'>
+            <column caption='Naics Code (Stat Bussi Patrn Annual Vari)' datatype='integer' name='[naics_code (stat_bussi_patrn_annual_vari)]' role='dimension' type='ordinal' />
+            <column-instance column='[naics_code (stat_bussi_patrn_annual_vari)]' derivation='None' name='[none:naics_code (stat_bussi_patrn_annual_vari):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column caption='Paid Employees Vari' datatype='real' name='[paid_employees_vari]' role='measure' type='quantitative' />
+            <column-instance column='[paid_employees_vari]' derivation='Sum' name='[sum:paid_employees_vari:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[total_establishment_vari]' derivation='Sum' name='[sum:total_establishment_vari:qk]' pivot='key' type='quantitative' />
+            <column caption='Total Establishment Vari' datatype='real' name='[total_establishment_vari]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='postgres.42312.718396643519'>
+            <column caption='Balance Total' datatype='integer' name='[balance_total]' role='measure' type='quantitative' />
+            <column-instance column='[balance_total]' derivation='Sum' name='[sum:balance_total:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[postgres.42312.685770497686].[none:naics_code (stat_bussi_patrn_annual_vari):ok]'>
+            <groupfilter from='11' function='range' level='[none:naics_code (stat_bussi_patrn_annual_vari):ok]' to='81' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[postgres.42312.685770497686].[none:naics_code (stat_bussi_patrn_annual_vari):ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[postgres.42312.685770497686].[sum:paid_employees_vari:qk]' field-type='quantitative' range-type='independent' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[postgres.42312.685770497686].[sum:paid_employees_vari:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[postgres.42312.685770497686].[sum:paid_employees_vari:qk]' scope='rows' value='true' />
+            <encoding attr='space' class='0' field='[postgres.42312.685770497686].[sum:total_establishment_vari:qk]' field-type='quantitative' range-type='independent' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[postgres.42312.685770497686].[sum:total_establishment_vari:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[postgres.42312.685770497686].[sum:total_establishment_vari:qk]' scope='rows' value='true' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minheight' value='192' />
+                <format attr='maxheight' value='192' />
+                <format attr='minwidth' value='1305' />
+                <format attr='maxwidth' value='1305' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' y-axis-name='[postgres.42312.685770497686].[sum:paid_employees_vari:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='3' y-axis-name='[postgres.42312.718396643519].[sum:balance_total:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Shape' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#8db5e0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' y-axis-name='[postgres.42312.685770497686].[sum:total_establishment_vari:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#daa800' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([postgres.42312.685770497686].[none:naics_code (stat_bussi_patrn_annual_vari):ok] * ([postgres.42312.718396643519].[sum:balance_total:qk] + ([postgres.42312.685770497686].[sum:paid_employees_vari:qk] + [postgres.42312.685770497686].[sum:total_establishment_vari:qk])))</rows>
+        <cols>[postgres.42312.685770497686].[none:year:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='exchange'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='business' name='postgres.42312.685770497686' />
+            <datasource caption='international trade' name='postgres.42312.718396643519' />
+            <datasource caption='exchange' name='postgres.42313.613739930559' />
+          </datasources>
+          <datasource-dependencies datasource='postgres.42312.685770497686'>
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='postgres.42312.718396643519'>
+            <column caption='Balance Total' datatype='integer' name='[balance_total]' role='measure' type='quantitative' />
+            <column caption='Export Goods' datatype='integer' name='[export_goods]' role='measure' type='quantitative' />
+            <column caption='Export Service' datatype='integer' name='[export_service]' role='measure' type='quantitative' />
+            <column caption='Export Total' datatype='integer' name='[export_total]' role='measure' type='quantitative' />
+            <column caption='Import Goods' datatype='integer' name='[import_goods]' role='measure' type='quantitative' />
+            <column caption='Import Service' datatype='integer' name='[import_service]' role='measure' type='quantitative' />
+            <column caption='Import Total' datatype='integer' name='[import_total]' role='measure' type='quantitative' />
+            <column-instance column='[balance_total]' derivation='Sum' name='[sum:balance_total:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[export_goods]' derivation='Sum' name='[sum:export_goods:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[export_service]' derivation='Sum' name='[sum:export_service:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[export_total]' derivation='Sum' name='[sum:export_total:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[import_goods]' derivation='Sum' name='[sum:import_goods:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[import_service]' derivation='Sum' name='[sum:import_service:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[import_total]' derivation='Sum' name='[sum:import_total:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='postgres.42313.613739930559'>
+            <column caption='Aud' datatype='real' name='[aud]' role='measure' type='quantitative' />
+            <column caption='Cad' datatype='real' name='[cad]' role='measure' type='quantitative' />
+            <column caption='Eur' datatype='real' name='[eur]' role='measure' type='quantitative' />
+            <column caption='Gbp' datatype='real' name='[gbp]' role='measure' type='quantitative' />
+            <column caption='Jpy' datatype='real' name='[jpy]' role='measure' type='quantitative' />
+            <column-instance column='[aud]' derivation='None' name='[none:aud:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[cad]' derivation='None' name='[none:cad:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[eur]' derivation='None' name='[none:eur:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[gbp]' derivation='None' name='[none:gbp:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[jpy]' derivation='None' name='[none:jpy:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[rmb]' derivation='None' name='[none:rmb:qk]' pivot='key' type='quantitative' />
+            <column caption='Rmb' datatype='real' name='[rmb]' role='measure' type='quantitative' />
+            <column-instance column='[cad]' derivation='Sum' name='[sum:cad:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[postgres.42313.613739930559].[sum:cad:qk]' included-values='non-null' />
+          <slices>
+            <column>[postgres.42313.613739930559].[sum:cad:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[postgres.42312.718396643519].[sum:import_total:qk]' field-type='quantitative' max='2912861' min='1003856' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[postgres.42312.718396643519].[sum:import_total:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[postgres.42312.718396643519].[sum:import_total:qk]' scope='rows' value='true' />
+            <encoding attr='space' class='0' field='[postgres.42312.718396643519].[sum:export_total:qk]' field-type='quantitative' max='2407666' min='842257' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[postgres.42312.718396643519].[sum:export_total:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[postgres.42312.718396643519].[sum:export_total:qk]' scope='rows' value='true' />
+            <encoding attr='space' class='0' field='[postgres.42312.718396643519].[sum:balance_total:qk]' field-type='quantitative' max='-272867' min='-804390' range-type='fixed' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[postgres.42312.718396643519].[sum:balance_total:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[postgres.42312.718396643519].[sum:balance_total:qk]' scope='rows' value='true' />
+            <encoding attr='space' class='0' domain-expand='false' field='[postgres.42312.718396643519].[sum:import_goods:qk]' field-type='quantitative' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[postgres.42312.718396643519].[sum:import_goods:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[postgres.42312.718396643519].[sum:import_goods:qk]' scope='rows' value='true' />
+            <encoding attr='space' class='0' domain-expand='false' field='[postgres.42312.718396643519].[sum:import_service:qk]' field-type='quantitative' scope='rows' type='space' />
+            <format attr='subtitle' class='0' field='[postgres.42312.718396643519].[sum:import_service:qk]' scope='rows' value='' />
+            <format attr='auto-subtitle' class='0' field='[postgres.42312.718396643519].[sum:import_service:qk]' scope='rows' value='true' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[postgres.42313.613739930559].[none:aud:qk]' value='false' />
+            <format attr='break-on-special' field='[postgres.42313.613739930559].[none:aud:qk]' value='false' />
+            <format attr='show-null-value-warning' field='[postgres.42313.613739930559].[none:aud:qk]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='357' />
+                <format attr='maxwidth' value='357' />
+                <format attr='minheight' value='263' />
+                <format attr='maxheight' value='263' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='9' y-axis-name='[postgres.42312.718396643519].[sum:balance_total:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+          </pane>
+          <pane id='10' y-axis-name='[postgres.42312.718396643519].[sum:import_total:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#c1a681' />
+                <format attr='mark-markers-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='11' y-axis-name='[postgres.42312.718396643519].[sum:export_total:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#67b986' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='12' y-axis-name='[postgres.42312.718396643519].[sum:import_goods:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#8db5e0' />
+                <format attr='mark-markers-mode' value='auto' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='357' />
+                <format attr='maxwidth' value='357' />
+                <format attr='minheight' value='263' />
+                <format attr='maxheight' value='263' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='13' y-axis-name='[postgres.42312.718396643519].[sum:import_service:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='357' />
+                <format attr='maxwidth' value='357' />
+                <format attr='minheight' value='263' />
+                <format attr='maxheight' value='263' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='14' y-axis-name='[postgres.42312.718396643519].[sum:export_service:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='357' />
+                <format attr='maxwidth' value='357' />
+                <format attr='minheight' value='263' />
+                <format attr='maxheight' value='263' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='15' y-axis-name='[postgres.42312.718396643519].[sum:export_goods:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#8db5e0' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='357' />
+                <format attr='maxwidth' value='357' />
+                <format attr='minheight' value='263' />
+                <format attr='maxheight' value='263' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([postgres.42312.718396643519].[sum:import_total:qk] + ([postgres.42312.718396643519].[sum:import_goods:qk] + ([postgres.42312.718396643519].[sum:import_service:qk] + ([postgres.42312.718396643519].[sum:export_total:qk] + ([postgres.42312.718396643519].[sum:export_goods:qk] + ([postgres.42312.718396643519].[sum:export_service:qk] + [postgres.42312.718396643519].[sum:balance_total:qk]))))))</rows>
+        <cols>([postgres.42312.685770497686].[none:year:qk] + ([postgres.42313.613739930559].[none:aud:qk] + ([postgres.42313.613739930559].[none:cad:qk] + ([postgres.42313.613739930559].[none:eur:qk] + ([postgres.42313.613739930559].[none:gbp:qk] + ([postgres.42313.613739930559].[none:jpy:qk] + [postgres.42313.613739930559].[none:rmb:qk]))))))</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='0' name='business'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[postgres.42312.685770497686].[none:naics_code (stat_bussi_patrn_annual_vari):ok]</field>
+          <field>[postgres.42312.685770497686].[none:year:qk]</field>
+          <field>[postgres.42312.718396643519].[none:year:qk]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='exchange'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[postgres.42312.685770497686].[:Measure Names]</field>
+          <field>[postgres.42312.685770497686].[Multiple Values]</field>
+          <field>[postgres.42312.685770497686].[none:year:qk]</field>
+          <field>[postgres.42313.613739930559].[none:aud:qk]</field>
+          <field>[postgres.42313.613739930559].[none:cad:qk]</field>
+          <field>[postgres.42313.613739930559].[none:eur:qk]</field>
+          <field>[postgres.42313.613739930559].[none:year (exchange):ok]</field>
+          <field>[postgres.42313.613739930559].[none:year (time):ok]</field>
+          <field>[postgres.42313.613739930559].[none:year:qk]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='business' width='192'>
+      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
+      RU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='exchange' width='192'>
+      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
+      AElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
