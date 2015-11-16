@@ -245,12 +245,7 @@ SELECT
 	t1.year AS year,
 	t1.enterprise_inc_rate AS enterprise_inc_rate,
 	t2.import_total AS import_total,
-	t2.import_goods AS import_goods,
-	t2.import_service AS import_service,
-	t2.export_total AS export_total,
-	t2.export_goods AS export_goods,
-	t2.export_service AS export_service,
-	t2.balance_total AS balance_total
+	t2.export_total AS export_total
 FROM
 	stat_enterprise_annu_incr_rate AS t1,
 	trading AS t2
