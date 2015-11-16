@@ -219,6 +219,44 @@ NATURAL JOIN industry
 WHERE naics_code > 0
 ORDER BY year ASC, paid_employees DESC;
 
+CREATE OR REPLACE VIEW stat_enterprise_annu_vari(year, enterprise_vari) AS
+SELECT
+	year AS year,
+	total_establishment_vari AS enterprise_vari
+FROM
+	stat_bussi_patrn_annual_vari
+WHERE
+	naics_code = 0
+ORDER BY year ASC;
+
+CREATE OR REPLACE VIEW stat_enterprise_annu_incr_rate(year, enterprise_inc_rate) AS
+SELECT
+	t1.year AS year,
+	(t1.enterprise_vari - t2.enterprise_vari) / t2.enterprise_vari AS enterprise_inc_rate
+FROM
+	stat_enterprise_annu_vari AS t1,
+	stat_enterprise_annu_vari AS t2
+WHERE
+	t1.year = t2.year - 1
+ORDER BY year ASC;
+
+CREATE OR REPLACE VIEW hypotest_pos_enterprise_trade(year, enterprise_inc_rate, import_total, import_goods, import_service, export_total, export_goods, export_service, balance_total) AS
+SELECT
+	t1.year AS year,
+	t1.enterprise_inc_rate AS enterprise_inc_rate,
+	t2.import_total AS import_total,
+	t2.import_goods AS import_goods,
+	t2.import_service AS import_service,
+	t2.export_total AS export_total,
+	t2.export_goods AS export_goods,
+	t2.export_service AS export_service,
+	t2.balance_total AS balance_total
+FROM
+	stat_enterprise_annu_incr_rate AS t1,
+	trading AS t2
+WHERE
+	t1.year = t2.year
+ORDER BY year ASC;
 
 DROP VIEW stat_immi_natu_vari_avg;
 DROP VIEW stat_immi_natu_vari;
