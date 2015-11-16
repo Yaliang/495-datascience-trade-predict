@@ -240,17 +240,45 @@ WHERE
 	t1.year = t2.year - 1
 ORDER BY year ASC;
 
-CREATE OR REPLACE VIEW hypotest_pos_enterprise_trade(year, enterprise_inc_rate, import_total, import_goods, import_service, export_total, export_goods, export_service, balance_total) AS
+CREATE OR REPLACE VIEW hypotest_pos_enterprise_trade(year, enterprise_inc_rate, import, export) AS
 SELECT
 	t1.year AS year,
 	t1.enterprise_inc_rate AS enterprise_inc_rate,
-	t2.import_total AS import_total,
-	t2.export_total AS export_total
+	t2.import_total AS import,
+	t2.export_total AS export
 FROM
 	stat_enterprise_annu_incr_rate AS t1,
 	trading AS t2
 WHERE
 	t1.year = t2.year
+ORDER BY year ASC;
+
+CREATE OR REPLACE VIEW hypotest_no_11_export_service(year, paid_employees_11, export_service) AS
+SELECT
+	t1.year AS year,
+	t1.paid_employees AS paid_employees_11,
+	t2.export_service AS export_service
+FROM
+	labors_pattern AS t1,
+	trading AS t2
+WHERE
+	t1.year = t2.year 
+	AND t1.naics_code = 11
+ORDER BY year ASC;
+
+CREATE OR REPLACE VIEW hypotest_pos_51_52_61_export_service(year, sum_paid_employees_51_52_61, export_service) AS
+SELECT
+	year AS year,
+	sum(paid_employees) AS sum_paid_employees_51_52_61,
+	max(export_service) AS export_service
+FROM
+	labors_pattern 
+	NATURAL JOIN trading
+WHERE
+	naics_code = 51
+	OR naics_code = 52
+	OR naics_code = 61
+GROUP BY year
 ORDER BY year ASC;
 
 DROP VIEW stat_immi_natu_vari_avg;
