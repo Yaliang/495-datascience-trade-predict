@@ -281,5 +281,18 @@ WHERE
 GROUP BY year
 ORDER BY year ASC;
 
+CREATE OR REPLACE VIEW hypotest_pos_immi_inc_rate_balance AS 
+SELECT t1.year,
+	(t2.variation::numeric - t1.variation::numeric) / t1.variation::numeric AS immi_inc_rate,
+    t3.balance_total AS balance
+FROM 
+	stat_immi_natu_vari t1,
+	stat_immi_natu_vari t2,
+	trading t3
+WHERE 
+	t1.year = (t2.year - 1) 
+	AND t3.year = t2.year
+ORDER BY t1.year;
+
 DROP VIEW stat_immi_natu_vari_avg;
 DROP VIEW stat_immi_natu_vari;
